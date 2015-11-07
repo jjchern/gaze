@@ -4,7 +4,10 @@
 About
 =====
 
-This R data package stores 2010 Census Gazetteer Files. So far it only includes - the counties file (`county10.rda`) - the zcta file (`zcta10.rda`)
+This R data package stores 2010 Census Gazetteer Files. So far it only includes
+
+-   the counties file (`county10.rda`)
+-   the zcta file (`zcta10.rda`)
 
 Useful Links
 ============
