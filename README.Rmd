@@ -1,0 +1,56 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/<USERNAME>/<REPO>.svg?branch=master)](https://travis-ci.org/<USERNAME>/<REPO>)
+
+
+# About
+
+This R data package stores 2010 Census Gazetteer Files. So far it only includes
+- the counties file (`county10.rda`)
+- the zcta file (`zcta10.rda`)
+
+# Useful Links
+
+- [U.S. Gazetteer Files](https://www.census.gov/geo/maps-data/data/gazetteer.html)
+
+# Installation 
+
+```r
+# install.packages("devtools")
+devtools::install_github("jjchern/gaze")
+```
+
+# Usage
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+
+gaze::county10
+gaze::zcta10
+
+# display variable labels
+gaze::county10 %>% select(usps, name, pop10, aland) %>% 
+  meda::d(compact = FALSE) %>% select(var, label)
+
+# the 10 largest counties in the United States by population based on the 2010 Census
+gaze::county10 %>% arrange(desc(pop10))
+
+# the 10 largest counties in the United States by area based on the 2010 Census
+gaze::county10 %>% arrange(desc(aland))
+```
+
+

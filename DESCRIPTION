@@ -1,0 +1,12 @@
+Package: gaze
+Title: 2010 Census Gazetteer Files
+Version: 0.0.0.9000
+Authors@R: 'JJ Chen <jiajia.chern@gmail.com> [aut, cre]'
+Description: 2010 Census Gazetteer Files as an R data package.
+Depends:
+    R (>= 3.2.2)
+License: CC0
+LazyData: true
+URL: https://github.com/jjchern/gaze
+BugReports: https://github.com/jjchern/gaze/issues
+RoxygenNote: 5.0.0.9000
