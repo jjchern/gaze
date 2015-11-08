@@ -3,6 +3,7 @@
 
 src = "http://www2.census.gov/geo/docs/maps-data/data/gazetteer/Gaz_counties_national.zip"
 lcl_zip = "data-raw/Gaz_counties_national.zip"
+lcl_txt = "data-raw/Gaz_counties_national.txt"
 
 if (!file.exists(lcl_zip)) download.file(src, lcl_zip)
 unzip(lcl_zip, exdir = "data-raw")
@@ -49,6 +50,14 @@ labelled::var_label(county10) =
 meda::d(county10)
 meda::cb(county10)
 
+# Some county names contains special characters
+# Ref: http://stackoverflow.com/questions/9934856/removing-non-ascii-characters-from-data-files
+tools::showNonASCII(county10$name)
+obsNum = grep("I_WAS_NOT_ASCII", iconv(county10$name, "latin1", "ASCII", sub="I_WAS_NOT_ASCII"))
+county10$name[obsNum]
+county10$name[obsNum] = county10$name[obsNum] %>% iconv("latin1", "ASCII//TRANSLIT")
+county10$name[obsNum]
+
 # Save the data frame -----------------------------------------------------
 
 devtools::use_data(county10, overwrite = TRUE)
@@ -56,3 +65,4 @@ devtools::use_data(county10, overwrite = TRUE)
 # Delete the raw zip file --------------------------------------------------
 
 unlink(lcl_zip)
+unlink(lcl_txt)
