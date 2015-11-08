@@ -52,6 +52,15 @@ gaze::county10 %>% arrange(desc(pop10))
 
 # the 10 largest counties in the United States by area based on the 2010 Census
 gaze::county10 %>% arrange(desc(aland))
+
+# County names are not unique
+# See https://en.wikipedia.org/wiki/List_of_the_most_common_U.S._county_names
+gaze::county10 %>% 
+  filter(name == "Washington County") %>% 
+  print(n = 30)
+
+gaze::county10 %>% 
+  filter(name == "Cook County") 
 ```
 
 

@@ -115,4 +115,58 @@ gaze::county10 %>% arrange(desc(aland))
 #> ..   ...   ...      ...                             ...     ...    ...
 #> Variables not shown: aland (dbl), awater (dbl), aland_sqmi (dbl),
 #>   awater_sqmi (dbl), intptlat (dbl), intptlong (dbl)
+
+# County names are not unique
+# See https://en.wikipedia.org/wiki/List_of_the_most_common_U.S._county_names
+gaze::county10 %>% 
+  filter(name == "Washington County") %>% 
+  print(n = 30)
+#> Source: local data frame [30 x 12]
+#> 
+#>     usps geoid ansicode              name  pop10   hu10      aland
+#>    (chr) (int)    (int)             (chr)  (int)  (int)      (dbl)
+#> 1     AL  1129   161590 Washington County  17581   8407 2797722307
+#> 2     AR  5143    69905 Washington County 203065  87808 2439681852
+#> 3     CO  8121   198176 Washington County   4814   2434 6521670287
+#> 4     FL 12133   295762 Washington County  24896  10796 1509453502
+#> 5     GA 13303   348428 Washington County  21187   9047 1757182927
+#> 6     ID 16087   399757 Washington County  10198   4529 3763204795
+#> 7     IL 17189  1785150 Washington County  14716   6534 1457055371
+#> 8     IN 18175   451665 Washington County  28262  12220 1330542331
+#> 9     IA 19183   465280 Washington County  21704   9516 1473276393
+#> 10    KS 20201   485061 Washington County   5799   2955 2317406254
+#> 11    KY 21229   516961 Washington County  11717   5044  769916143
+#> 12    ME 23029   581300 Washington County  32856  23001 6637257545
+#> 13    MD 24043  1714220 Washington County 147430  60814 1185644157
+#> 14    MN 27163   659526 Washington County 238136  92374  995285532
+#> 15    MS 28151   695796 Washington County  51137  21708 1877071141
+#> 16    MO 29221   758563 Washington County  25195  11017 1968164689
+#> 17    NE 31177   835910 Washington County  20234   8301 1009986004
+#> 18    NY 36115   974155 Washington County  63216  28844 2152756071
+#> 19    NC 37187  1026331 Washington County  13228   6491  901664508
+#> 20    OH 39167  1074095 Washington County  61778  28367 1636799113
+#> 21    OK 40147  1101861 Washington County  50976  23451 1076020808
+#> 22    OR 41067  1155137 Washington County 529710 212450 1875746999
+#> 23    PA 42125  1209190 Washington County 207820  92977 2219591093
+#> 24    RI 44009  1219782 Washington County 126979  62206  852713750
+#> 25    TN 47179  1639797 Washington County 122979  57254  845539916
+#> 26    TX 48477  1384024 Washington County  33718  15514 1564232347
+#> 27    UT 49053  1448040 Washington County 138115  57734 6284236933
+#> 28    VT 50023  1461768 Washington County  59534  29941 1779926134
+#> 29    VA 51191  1498359 Washington County  54876  25601 1452917904
+#> 30    WI 55131  1581125 Washington County 131887  54695 1115515204
+#> Variables not shown: awater (dbl), aland_sqmi (dbl), awater_sqmi (dbl),
+#>   intptlat (dbl), intptlong (dbl)
+
+gaze::county10 %>% 
+  filter(name == "Cook County") 
+#> Source: local data frame [3 x 12]
+#> 
+#>    usps geoid ansicode        name   pop10    hu10      aland     awater
+#>   (chr) (int)    (int)       (chr)   (int)   (int)      (dbl)      (dbl)
+#> 1    GA 13075   343878 Cook County   17212    7287  588345665   15647080
+#> 2    IL 17031  1784766 Cook County 5194675 2180359 2448383588 1785882224
+#> 3    MN 27031   659461 Cook County    5176    5839 3761380730 4888013531
+#> Variables not shown: aland_sqmi (dbl), awater_sqmi (dbl), intptlat (dbl),
+#>   intptlong (dbl)
 ```
